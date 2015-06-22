@@ -212,9 +212,9 @@ query.on('row', function (result){
 if (result) {
 returnPoint = result.count ;
 p  = result.points ;
-if(result.points != -1 ) {
+if(p != -1 ) {
 console.log("suceess"+ result.points) ;
-res.write(result.points) ;
+res.write(p) ;
 res.end();
 }else {
 console.log("404 : NOT FOUND"); return res.send("404: CAN NOT FIND USER WITH GIVEN USER NAME");
