@@ -1,0 +1,383 @@
+
+
+
+body{
+
+max-height: 768px;
+background-repeat: no-repeat;
+}
+
+/*Index Style */
+
+#user {
+	position:absolute;
+	left: 0;
+	right: 0;
+	top:46%;
+	margin: 0 auto;
+
+}
+
+#password{
+	position:absolute;
+	left: 0;
+	right: 0;
+	top:54%;
+	margin: 0 auto;
+
+}
+
+#submit{
+	position:absolute;
+	left: 0;
+	right: 0;
+	top:62%;
+	margin: 0 auto;
+
+}
+
+#loginbackground{
+	position:relative;
+	left:-1%;	
+	height:768px;
+	width:1024px;
+}
+
+/* Title.html */
+
+#title{
+	position:absolute;
+	left: 0;
+	right: 0;
+	top:12%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 2.5em;
+}
+
+
+/*Menu Buttons*/
+
+#gamelink{
+	position:absolute;
+	left: 40.5%;
+	right: 0;
+	top:35%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 2em;
+}
+
+#tutoriallink{
+	position:absolute;
+	left: 42%;
+	right: 0;
+	top:45%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 2em;
+}
+
+#rankinglink{
+	position:absolute;
+	left: 44.25%;
+	right: 0;
+	top:53%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 2em;
+}
+
+#infolink{
+	position:absolute;
+	left: 38%;
+	right: 0;
+	top:61.75%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 2em;
+}
+
+#Quitlink{
+	position:absolute;
+	left: 47%;
+	right: 0;
+	top:70%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 2em;
+}
+/* Info.html */
+
+p{
+
+	position:absolute;
+	left: 0;
+	right: 0;
+	top:50%;
+	margin-left:20%;
+	margin-right:20%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 1em;
+}
+
+
+/* game.html */
+
+/* Div Containing Player IMG */
+#player{
+	display:block;
+    position:relative;
+	margin: 0 auto;
+	left:148%;
+	bottom:-75%;
+}
+
+/* Player Image Sizing */
+#playerimg{
+	width:100px;
+	height:100px;
+	position:absolute;
+}
+
+/* Div Containing Player IMG */
+#player1{
+	display:block;
+    position:relative;
+	margin: 0 auto;
+	left:148%;
+	bottom:-10%;
+}
+
+/* Player Image Sizing */
+#playerimg1{
+	width:100px;
+	height:100px;
+	position:absolute;
+}
+
+
+/* Div Containing Car IMG */
+#car{
+	display:block;
+    position:relative;
+	margin: 0 auto;
+	left:30%;
+	bottom:-25%;
+}
+
+/* Car Image Sizing */
+#carimg{
+	width:350px;
+	height:200px;
+	position:absolute;
+}
+
+
+/* Div Containing Car IMG */
+#car1{
+	display:block;
+    position:relative;
+	margin: 0 auto;
+	left:100%;
+	bottom:-25%;
+}
+
+/* Car Image Sizing */
+#carimg1{
+	width:350px;
+	height:200px;
+	position:absolute;
+}
+
+
+
+
+
+/*Icons */
+
+/* Back Arrow Icon */
+#backicon {
+	opacity: 0.6;
+	left: 2%;
+	top:92%;
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:50px;
+	width:50px;
+}
+
+/* Listen Icon */
+#listenicon{
+	opacity: 0.6;
+	right: 2%;
+	top:92%;
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:50px;
+	width:50px;
+}
+
+
+/* Wait Icon */
+
+#waiticon{
+	position:absolute;
+	left: 20%;
+	top:85%;
+	text-align: center;
+	font-size: 2.5em;
+}
+
+
+/* Cross Icon */
+
+#crossicon{
+	position:absolute;
+	right:20%;
+	top:85%;
+	text-align: center;
+	font-size: 2.5em;
+}
+
+
+/* Horozontal Scroll Testing */
+#myWorkContent{
+    width: auto;
+    height:100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+/*Images!  */
+
+#gamebackground{
+	display: inline-block;
+    vertical-align: middle;
+}
+
+#gamebackground2{
+	display: inline-block;
+    vertical-align: middle;
+
+
+}
+#gamebackground3{
+	display: inline-block;
+    vertical-align: middle;
+
+}
+
+/* Test for centring the screen 
+
+#centrescreen{
+  	background-color:red;
+    position:absolute;
+    height:768px;
+    width:1024px;
+	left: 25%;
+}
+*/
+/*Background Image*/
+
+#background{
+	height:100%;
+}
+
+/*World Map Screen*/
+
+	#lights {
+
+	opacity: 0.6;
+	left: 58%;
+	top:48%;
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:100px;
+	width:100px;
+	}
+
+	#zebra {
+	opacity: 0.6;
+	left: 76.5%;
+	top:48%;
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:100px;
+	width:100px;
+		
+	}
+
+	#roundabout {
+	opacity: 0.6;
+	left: 26.5%;
+	top:48.2%;
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:100px;
+	width:100px;
+		
+	}
+
+/*Choose Where to Cross Screen*/
+
+	#leftchoice {
+
+	opacity: 0.6;
+	left: 73%;
+	top:60%;
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:100px;
+	width:100px;
+	}
+
+	#middlechoice {
+	opacity: 0.6;
+	left: 46%;
+	top:60%;
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:100px;
+	width:100px;
+		
+	}
+
+	#rightchoice {
+	opacity: 0.6;
+	left: 20%;
+	top:60%;
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:100px;
+	width:100px;
+		
+	}
+
+	#choosemap {
+
+	margin:0 auto;
+	position:absolute;
+	display:block;
+	height:256px;
+	width:1024px;
+	top:33%;
+
+
+
+	}
+
+	#hyperlink{
+
+		text-decoration: none;
+	}

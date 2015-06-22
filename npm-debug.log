@@ -1,0 +1,100 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/pkg/bin/node', '/usr/pkg/bin/npm', 'install', '-g' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.36
+4 verbose cache add [ '.', null ]
+5 verbose cache add name=undefined spec="." args=[".",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: '.',
+6 verbose parsed url   path: '.',
+6 verbose parsed url   href: '.' }
+7 silly lockFile 3a52ce78- .
+8 verbose lock . /u/students/griffiryan/.npm/3a52ce78-.lock
+9 verbose tar pack [ '/u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz',
+9 verbose tar pack   '.' ]
+10 verbose tarball /u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz
+11 verbose folder .
+12 info prepublish 2014-studio-6@0.0.1
+13 silly lockFile 1f1177db-tar tar://.
+14 verbose lock tar://. /u/students/griffiryan/.npm/1f1177db-tar.lock
+15 silly lockFile b88b3c0b--2014-studio-6-0-0-1-package-tgz tar:///u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz
+16 verbose lock tar:///u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz /u/students/griffiryan/.npm/b88b3c0b--2014-studio-6-0-0-1-package-tgz.lock
+17 silly lockFile 1f1177db-tar tar://.
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile b88b3c0b--2014-studio-6-0-0-1-package-tgz tar:///u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz
+20 silly lockFile b88b3c0b--2014-studio-6-0-0-1-package-tgz tar:///u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz
+21 silly lockFile fdc89bed--npm-2014-studio-6-0-0-1-package /u/students/griffiryan/.npm/2014-studio-6/0.0.1/package
+22 verbose lock /u/students/griffiryan/.npm/2014-studio-6/0.0.1/package /u/students/griffiryan/.npm/fdc89bed--npm-2014-studio-6-0-0-1-package.lock
+23 silly lockFile fdc89bed--npm-2014-studio-6-0-0-1-package /u/students/griffiryan/.npm/2014-studio-6/0.0.1/package
+24 silly lockFile fdc89bed--npm-2014-studio-6-0-0-1-package /u/students/griffiryan/.npm/2014-studio-6/0.0.1/package
+25 silly lockFile 3a52ce78- .
+26 silly lockFile 3a52ce78- .
+27 silly resolved [ { name: '2014-studio-6',
+27 silly resolved     version: '0.0.1',
+27 silly resolved     description: 'Very simple quote node.js server that allows users to add and retrieve quotes using a simple RESTful interface.',
+27 silly resolved     main: 'quote.js',
+27 silly resolved     engines: { node: '0.10.x' },
+27 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+27 silly resolved     author: { name: 'Ryan Griffin' },
+27 silly resolved     license: 'none',
+27 silly resolved     dependencies:
+27 silly resolved      { 'body-parser': '^1.12.4',
+27 silly resolved        cors: '^2.6.0',
+27 silly resolved        express: '^4.12.3',
+27 silly resolved        'password-hash-and-salt': '^0.1.2',
+27 silly resolved        pg: '^4.3.0',
+27 silly resolved        'pg-native': '^1.8.1',
+27 silly resolved        'rand-token': '^0.2.1',
+27 silly resolved        urlencode: '^1.0.0' },
+27 silly resolved     gitHead: '5f26cbfd782dad00f265e97eff548ec2c13642a9',
+27 silly resolved     readme: '# nwen304/mddn352 studio exercise\n\nVery simple quote node.js server that allows users to add and retrieve quotes using a simple RESTful interface.\n\nIncludes html for the client as well as the code for the server side.\n',
+27 silly resolved     readmeFilename: 'README.md',
+27 silly resolved     _id: '2014-studio-6@0.0.1',
+27 silly resolved     _shasum: '7e531a4dca4ff3bf16207d1826eee73456fc56ec',
+27 silly resolved     _from: '.' } ]
+28 info install 2014-studio-6@0.0.1 into /usr/pkg/lib
+29 info installOne 2014-studio-6@0.0.1
+30 verbose lib/node_modules/2014-studio-6 unbuild
+31 verbose tar unpack /u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz
+32 silly lockFile 5be763b4-g-lib-node-modules-2014-studio-6 tar:///usr/pkg/lib/node_modules/2014-studio-6
+33 verbose lock tar:///usr/pkg/lib/node_modules/2014-studio-6 /u/students/griffiryan/.npm/5be763b4-g-lib-node-modules-2014-studio-6.lock
+34 silly lockFile b88b3c0b--2014-studio-6-0-0-1-package-tgz tar:///u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz
+35 verbose lock tar:///u/students/griffiryan/.npm/2014-studio-6/0.0.1/package.tgz /u/students/griffiryan/.npm/b88b3c0b--2014-studio-6-0-0-1-package-tgz.lock
+36 silly gunzTarPerm modes [ '700', '600' ]
+37 error Error: EACCES, mkdir '/usr/pkg/lib/node_modules/2014-studio-6'
+37 error  { [Error: EACCES, mkdir '/usr/pkg/lib/node_modules/2014-studio-6']
+37 error   errno: 3,
+37 error   code: 'EACCES',
+37 error   path: '/usr/pkg/lib/node_modules/2014-studio-6',
+37 error   fstream_type: 'Directory',
+37 error   fstream_path: '/usr/pkg/lib/node_modules/2014-studio-6',
+37 error   fstream_class: 'DirWriter',
+37 error   fstream_stack:
+37 error    [ '/usr/pkg/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+37 error      '/usr/pkg/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+37 error      'Object.oncomplete (fs.js:108:15)' ] }
+38 error Please try running this command again as root/Administrator.
+39 error System Linux 3.17.3-1-ARCH
+40 error command "/usr/pkg/bin/node" "/usr/pkg/bin/npm" "install" "-g"
+41 error cwd /am/phoenix/home1/griffiryan/Downloads/304/p2/nwen304-heroku-quote-server
+42 error node -v v0.10.36
+43 error npm -v 1.4.28
+44 error path /usr/pkg/lib/node_modules/2014-studio-6
+45 error fstream_path /usr/pkg/lib/node_modules/2014-studio-6
+46 error fstream_type Directory
+47 error fstream_class DirWriter
+48 error code EACCES
+49 error errno 3
+50 error stack Error: EACCES, mkdir '/usr/pkg/lib/node_modules/2014-studio-6'
+51 error fstream_stack /usr/pkg/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+51 error fstream_stack /usr/pkg/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+51 error fstream_stack Object.oncomplete (fs.js:108:15)
+52 verbose exit [ 3, true ]

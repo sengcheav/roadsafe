@@ -1,0 +1,91 @@
+<DOCTYPE html>
+<html>
+  <head>
+    
+	<link rel="stylesheet" href="../css/index.css" type="text/css" media="screen">
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  	<script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	
+  </head>
+
+
+  <body>
+
+
+<img id="background"src="images/setting.png">
+
+<h1 id="title"> Road Crossing App Build </h1>
+
+
+<button id="gamelink" type="button">To The Game</button>
+
+
+<button id="tutoriallink" type="button">How to Play</button>
+
+<button id="rankinglink" type="button">Ranking</button>
+
+<button id="infolink" type="button">More Information</button>
+
+<button id="quitlink" type="button">Quit</button>
+
+<button id="logout" type="button">Logout</button>
+
+
+<script type="text/javascript">
+	$(document).bind('pageinit', function() {
+		$.ajaxSetup ({
+			cache: false
+		});
+
+		var token = sessionStorage.getItem('token');
+
+
+		$( "#gamelink" ).bind( "click", function(event, ui) {
+			window.location.replace("worldmap.html");
+		});
+
+		$( "#tutoriallink" ).bind( "click", function(event, ui) {
+			window.location.replace("info.html");
+		});
+
+		$( "#rankinglink" ).bind( "click", function(event, ui) {
+			window.location.replace("info.html");
+		});
+
+		$( "#infolink" ).bind( "click", function(event, ui) {
+			window.location.replace("info.html");
+		});
+		$( "#quitlink" ).bind( "click", function(event, ui) {
+			window.location.replace("info.html");
+		});
+
+		$( "#logout" ).bind( "click", function(event, ui) {
+		
+			$.ajax({
+				type: "POST",
+				url : "https://roadsafe.herokuapp.com/logout",
+				data: {token: token},
+				success : function(data){
+					if(data == 'logout succesful'){    
+					  alert(data);
+					  sessionStorage.setItem('token', '');
+					  window.location.replace("../index.html");
+					}
+					else{
+					  alert('Logout unsuccesful');
+					}
+				},
+				error: function(data) {
+					alert('an error occured');
+				}
+			},"json");
+		});
+
+	});
+	</script>
+
+
+
+
+  </body>
+</html>

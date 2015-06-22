@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+
+<body>
+
+<img id="loginbackground"src="images/setting.png">
+
+<section class="container">
+    <div class="signup">
+      <p><input type="text" name="username" value="" placeholder="Enter a Username" id = "username"></p>
+      <p><input type="password" name="password" value="" placeholder="Enter a Password" id = "password"></p>
+       <input type="submit" value="signup" id="signup" />
+    </div>
+  </section>
+
+    <script type="text/javascript">
+    $(document).bind('pageinit', function() {
+ 
+      $.ajaxSetup ({
+        cache: false
+      });
+
+        $( "#signup" ).bind( "click", function(event, ui) {
+        var un = $("#username").val();
+        var pw = $("#password").val();
+        $.ajax({
+          type: "POST",
+          url : "https://roadsafe.herokuapp.com/newUser",
+          data: {username: un, password: pw},
+          success : function(data){
+            if(data == 'User with this Username already exists!'){
+              $('#user').val("");
+              $('#password').val("");
+              alert(data);
+
+            }
+            else{
+              alert("signup succesful!");
+              window.location.replace("../index.html");
+            }
+
+          },
+          error: function(data) {
+            alert('An error occured');
+          }
+        },"json");
+            });
+              });
+    </script>
+  </body>
+
+
+</html>
