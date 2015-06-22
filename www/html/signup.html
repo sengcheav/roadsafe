@@ -31,7 +31,7 @@
         var pw = $("#password").val();
         $.ajax({
           type: "POST",
-          url : "https://roadsafe.herokuapp.com/newUser",
+          url : "https://guarded-beach-4338.herokuapp.com/newUser",
           data: {username: un, password: pw},
           success : function(data){
             if(data == 'User with this Username already exists!'){
