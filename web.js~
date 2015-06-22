@@ -223,6 +223,10 @@ var server = app.listen(process.env.PORT, function() {
 });
 
 
+var server = app.listen(process.env.PORT, function() {
+    console.log('Listening on port %d', server.address().port);
+                                                                
+});
 
 
 
@@ -453,7 +457,7 @@ return res.send("404 : USERNAME NOT FOUND");
 //res.end() ;
 });
 
-/*query = client.query('SELECT lvl_best[$1] AS best FROM rank WHERE username = $2', [req.params.lvl, obj.username]);  
+///*query = client.query('SELECT lvl_best[$1] AS best FROM rank WHERE username = $2', [req.params.lvl, obj.username]);  
 query.on("err", function(err) {
 console.log("select error");
 return res.send("error: ", err.message);
@@ -491,7 +495,7 @@ app.post ('/createAdmin' , function(req,res){
         {username : 'seng2', password : 'invalid2'},
         {username : 'seng3', password : 'invalid3'}
 
-];*/
+];//*/
 
 
 
