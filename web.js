@@ -149,6 +149,53 @@ return res.send(alluser) ;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.get('/user/:username', function (req,res){
+if(!req.params.username ){
+console.log("NEED USERNAME");
+res.statusCode = 400 ;
+return res.send('Error 400 : USERNAME not specified'); 
+}
+var count =-1 ;
+var user ={
+username : req.params.username,
+totalpoint : 0 ,
+points_lvl : [10],
+best : [10]
+}
+query = client.query('SELECT COUNT(*) AS COUNT ,TOTALPOINTS, USERNAME , POINTS_LVL , LVL_BEST FROM RANK WHERE USERNAME=$1 GROUP BY USERNAME', 
+[user.username]);
+query.on('row', function(result){
+if(result){
+count = result.count;
+user.totalpoint = result.totalpoints;
+user.points_lvl =result.points_lvl;
+user.best = result.lvl_best;
+res.statusCode =200 ;
+console.log("RETRIEVE SUCCESS AT GET USER") ;
+return res.send(user) ; 
+}
+});
+query.on('err', function(err){
+if(err){
+res.statusCode =503;
+console.log("ERROR" + err.message);
+return res.send("503 : ERROR");
+}
+
+});
+query.on('end', function(){
+if(count == -1 ){
+console.log("USER NOT FOUND");
+res.statusCode =404 ;
+return res.send("404: USERNOT FOUND");
+}
+res.end() ;
+});
+
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function doseqTok(req,res){
