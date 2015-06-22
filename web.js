@@ -108,7 +108,47 @@ app.post('/login',function(req,res){
 
 
 });
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.get('/rank', function (req,res){
+query = client.query('SELECT username , totalpoints, points_lvl FROM rank ORDER BY totalpoints DESC') ;
+var alluser =[];
+query.on('row', function (result){
+var user ={
+username : "",
+totalpoints: 0 
 
+} ; 
+user.username = result.username;
+user.totalpoints = result.totalpoints;
+user.points_lvl = result.points_lvl ; 
+alluser.push(user) ; 
+});
+
+query.on('err', function(err){
+res.statusCode =  503 ; 
+console.log("503 : ERROR "+ err.message );
+return res.send( "503 : ERROR"); 
+})
+
+query.on('end', function(){
+if(alluser.length < 1 ){
+res.statusCode =404 ; 
+console.log ("404 : NOT FOUND");
+res.return ("404 : NOT FOUND");
+res.end() ; 
+}else {
+res.statusCode = 200 ; 
+console.log("SUCCESS RETRIEVING FROM DATABASE");
+return res.send(alluser) ; 
+
+}
+
+});
+
+});
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function doseqTok(req,res){
