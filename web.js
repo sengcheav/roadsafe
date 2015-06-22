@@ -194,8 +194,50 @@ res.end() ;
 
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.get('/pointsAtlevel/:username/:lvl', function (req, res){
 
+if(!req.params.username || req.params.lvl < 0 || req.params.lvl>10 ){
+console.log( "please specify what lvl need") ;
+res.statusCode = 400;
+return res.send('Error 400: BAD REQUEST , Post syntax incorrect.');
+}
 
+var obj  = {
+username : req.params.username,
+};
+ 
+query = client.query('SELECT POINTS_LVL [$1] AS points, COUNT(username)  FROM RANK WHERE username = $2 GROUP BY POINTS_LVL[$1]',[req.params.lvl, obj.username]);
+var returnPoint = -1  ; var  p = -1 ; 
+query.on('row', function (result){
+if (result) {
+returnPoint = result.count ;
+p  = result.points ;
+if(result.count != 0 ) {
+console.log("suceess"+ result.points) ;
+return res.send(result.count) ;
+}else {
+console.log("404 : NOT FOUND"); return res.send("404: CAN NOT FIND USER WITH GIVEN USER NAME");
+}
+ 
+} 
+});
+
+query.on('error', function(err){
+res.statusCode = 503 ; 
+console.log(err.message) ; 
+return res.send("503 : ERROR") ; 
+});
+
+query.on('end', function(){
+if(returnPoint == -1 ) {
+console.log("404 : NOT FOUND");
+res.statusCode = 404 ;
+return res.send("404: NOT CANT FIND USERNAME");}
+res.end() ; 
+});
+
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function doseqTok(req,res){
