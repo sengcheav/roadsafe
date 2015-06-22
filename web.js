@@ -212,7 +212,7 @@ query.on('row', function (result){
 if (result) {
 returnPoint = result.count ;
 p  = result.points ;
-if(result.count != 0 ) {
+if(result.points != -1 ) {
 console.log("suceess"+ result.points) ;
 return res.sendStatus(result.points) ;
 }else {
