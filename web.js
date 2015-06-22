@@ -214,7 +214,7 @@ returnPoint = result.count ;
 p  = result.points ;
 if(result.points != -1 ) {
 console.log("suceess"+ result.points) ;
-return res.sendStatus(result.points) ;
+return res.send(result.points) ;
 }else {
 console.log("404 : NOT FOUND"); return res.send("404: CAN NOT FIND USER WITH GIVEN USER NAME");
 }
