@@ -147,7 +147,7 @@ function verifyCredentials(givenUsername,givenPassword,callback){
     storedHash = result.password;
     //IF !result ?? 
   });
-
+//
   query.on('end',function(){
       if(storedHash == null){
         callback(false);
