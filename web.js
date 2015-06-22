@@ -239,6 +239,57 @@ res.end() ;
 
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.post('/update/:lvl' , function (req, res){
+if(!req.body.hasOwnProperty('username') || !req.body.hasOwnProperty('point') || !req.params.lvl > 0){
+console.log( "please specify what lvl need to update") ;
+res.statusCode = 400;
+return res.send('Error 400: Post syntax incorrect.');
+
+}  
+var obj  = {
+username : req.body.username,
+point : req.body.point, 
+level : req.params.lvl
+};
+// assuming the username is correct that why it can do the updating
+
+query = client.query('SELECT count(username) , lvl_best[$1] AS best FROM rank WHERE username = $2 GROUP BY lvl_best[$1]',[obj.level, obj.username]);
+var count = -1  ; var best =  0 ; 
+query.on('row', function(result){
+count = result.count ; 
+best = result.best ;
+});
+
+query.on('err' , function(err){
+res.statusCode = 503  ;
+console.log( "ERROR :  "+ err.message) ;
+return res.send("503 : ERROR");
+});
+
+query.on('end', function(){
+if(count == -1 ) {
+//res.statusCode = 404 ;
+console.log ( "404 : USERNAME NOT FOUND") ; 
+return res.send("404 : USERNAME NOT FOUND"); 
+}else {
+   if(best >= obj.point){res.statusCode=200; console.log("DO NOT NEED TO UPDATE"); res.send("200 : DO NOT NEED TO UPDATE") ; }	
+   else {
+	client.query('UPDATE rank SET points_lvl[$1] = $2, lvl_best[$1]=$2 , totalpoints = totalpoints + $3 WHERE username=$4',[obj.level,obj.point,(obj.point-best),obj.username],function (err){
+                if(err) {console.log( "err :"+err.message) ; res.statusCode = 503 ; return res.send ("503 : Error at UPDATE" ) ; }  
+		console.log("UPDATED");
+		res.statusCode = 200 ; 
+		return res.send("200 : UPDATE") ; 	
+	
+	      }); 
+        
+
+	}
+}
+//res.end() ;
+});
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function doseqTok(req,res){
