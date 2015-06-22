@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" /> 
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+
+<body>
+<!--
+<img id="loginbackground"src="images/setting.png">
+-->
+
+<section class="container">
+   <div class="update">
+          <h2 id="title2">update</h2>
+     <!-- <p><input type="text" name="username1" value="" placeholder="Username" id = "username1"></p>  -->
+      <p><input type="number" name="points" value="" placeholder="Points" id = "points"></p>
+      <p><input type="number" name="level" value="" placeholder="Level" id = "level"></p>
+      <p id= "submit" class="submit"><input type="submit" value="UPDATE" id="update" /></p>
+
+    </div>
+</section>
+
+    <script type="text/javascript">
+	    $(document).bind('pageinit', function() {
+			var token;
+			$.ajaxSetup ({
+				cache: false
+			});
+
+$( "#update").bind("click", function(event,ui){ 
+				//var un = $("#username1").val();
+				var un = sessionStorage.getItem('username') ; 
+				var points = $("#points").val();
+				var level = $("#level").val(); 
+				var token = sessionStorage.getItem('token') ; 
+				//alert( "data being send: " + un + " " + points+ " "+ token) ; 
+				if( points == '' || points < 0 || level == '' || level > 9  ){ alert ("points<0 or null in point or level") ;} 
+				else{ alert( "data being send: " + un + " " + points+ " "+ token) ;
+				$.ajax({
+					type: "POST",
+					url : "https://guarded-beach-4338.herokuapp.com/update/"+ level,	
+					data:{username: un, point : points, tokens:token },
+					success : function(data){
+						if (data == '200 : UPDATE'){
+						alert("success :"+ data);}
+						else if (data == "404 : USERNAME NOT FOUND"){
+						alert("404 : USER NOT FOUND") ; 
+						}else if ( data == "Error 400: Post syntax incorrect."){
+						alert("filled in the level or point filled before submit") ; 	
+						}
+					},
+					error: function(data) {   
+                                                alert('an error occured: ' + data);
+                                        }
+				},"json");
+				}	
+			});  
+	    });
+    </script>
+  </body>
+
+
+</html>
