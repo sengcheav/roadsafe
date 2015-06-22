@@ -109,7 +109,7 @@ app.post('/login',function(req,res){
 
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-app.get('testupdate', function (req,res){
+app.get('/testupdate', function (req,res){
 res.sendfile('testupdate.html'); 
 
 });
