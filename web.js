@@ -63,7 +63,7 @@ app.post('/newUser',function(req,res){
         encrypt(pw,function(epw){
           var query2 = client.query('INSERT INTO users(username,password) VALUES($1,$2)',[un,epw]);
           query2.on('end',function(){
-           var query3 = client.query('INSERT INTO rank VALUES ($1,0 ,Array[0,0,0,0,0,0,0,0,0,0],Array[0,0,0,0,0,0,0,0,0,0])',[username], function(err){
+           var query3 = client.query('INSERT INTO rank VALUES ($1,0 ,Array[0,0,0,0,0,0,0,0,0,0],Array[0,0,0,0,0,0,0,0,0,0])',[un],function(err){
 	      if(err){ res.write('Error in create score table for user'+ err.message) ; res.end();}	
 	   });	
 	   res.writeHead(200);
