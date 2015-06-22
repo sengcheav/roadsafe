@@ -63,7 +63,10 @@ app.post('/newUser',function(req,res){
         encrypt(pw,function(epw){
           var query2 = client.query('INSERT INTO users(username,password) VALUES($1,$2)',[un,epw]);
           query2.on('end',function(){
-           res.writeHead(200);
+           var query3 = client.query('INSERT INTO rank VALUES ($1,0 ,Array[0,0,0,0,0,0,0,0,0,0],Array[0,0,0,0,0,0,0,0,0,0])',[username], function(err){
+	      if(err){ res.write('Error in create score table for user'+ err.message) ; res.end();}	
+	   });	
+	   res.writeHead(200);
            res.write('signup succesful');
            res.end();
           });
@@ -254,7 +257,7 @@ return res.send('Error 400: Post syntax incorrect.');
 var obj  = {
 username : req.body.username,
 point : req.body.point, 
-level : req.params.lvl
+level : req.params.lvl-1
 };
 // assuming the username is correct that why it can do the updating
 
